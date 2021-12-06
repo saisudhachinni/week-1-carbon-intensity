@@ -1,0 +1,20 @@
+<response>
+  <responseMetadata>
+    <httpCode>200</httpCode>
+    <errorType>Ok</errorType>
+    <description>Success</description>
+  </responseMetadata>
+  <responseBody>
+    <responseList>
+      <item>
+        <timeFrom>2021-12-06T07:00Z</timeFrom>
+        <timeTo>2021-12-06T07:30Z</timeTo>
+        <intensity>
+          <forecast>236</forecast>
+          <actual>228</actual>
+          <index>high</index>
+        </intensity>
+      </item>
+    </responseList>
+  </responseBody>
+</response>
