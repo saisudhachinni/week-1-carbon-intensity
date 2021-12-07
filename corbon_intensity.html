@@ -1,0 +1,8 @@
+import pandas as pd
+
+df_new = pd.read_csv('carbon_intensity.csv',
+                     usecols=['dnoregion', 'shortname', 'regionid', 'forecast', 'index', 'fuel', 'perc'])
+
+
+#print(df_new.head(10))
+df_new.to_html('carbon_intensity.html', justify='left', index=False)
