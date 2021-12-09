@@ -1,0 +1,120 @@
+import pprint
+from collections import defaultdict
+
+import requests
+
+base_url = 'https://api.carbonintensity.org.uk/regional'
+
+
+def get_response(base_url):
+    """
+    this function is used to get the respons of the api
+    :param base_url: string representing the url of the api
+    :return: json response
+    """
+    response = requests.get(base_url)
+    code = response.status_code
+    data = response.json()
+    return data['data']
+
+
+def get_columns(response):
+    """"
+    this function is used to get response from inside the data
+    :param response : it reprasents the regions of the data and print the regions
+    :return : return the statement inside data
+    """
+    data_inside = response['data']
+    print(data_inside)
+    # regions = response['regions']
+    # print(regions)
+    return data_inside
+
+
+
+def sample_function(data_inside):
+    """
+    this method writes the generator mix, generator fuel of dictionary
+    in the functions json values are passed
+    In the loops using the append values
+    :param : object reference from carbon_intensity file
+    :return : atlast to return the values
+    """
+    def sample2():
+        for generator_fuel in generator_mix:
+            for key, value in generator_fuel.items():
+                temp_dict[key].add(value)
+
+        for key, value in temp_dict.items():
+            my_dict[key] = "".join(str(value))
+
+        for keys, values in my_dict.items():
+            if keys == 'fuel':
+                fuel.append(values)
+            elif keys == 'perc':
+                # print(values)
+                perc.append(values)
+        return 'value'
+
+    dnoregion = []
+    shortname = []
+    forecast = []
+    index = []
+    result = []
+    fuel = []
+    perc = []
+    regionid = []
+    for date in data_inside:
+        # print(type(date_))#dict
+        regions = date['regions']
+        pprint.pprint(regions, indent=4)
+
+        for region in regions:
+            temp_dict = defaultdict(set)
+            my_dict = {}
+            dnoregion.append(region['dnoregion'])
+            # region['intensity']
+            forecast.append(region['intensity']['forecast'])
+            index.append(region['intensity']['index'])
+            regionid.append(region['regionid'])
+            shortname.append(region['shortname'])
+            generator_mix = region['generationmix']
+            # print(generator_mix)
+
+        s = sample2()
+
+
+def get_generator_fuel(generator_mix):
+    """
+    this method is used to grt response from the generator_mix
+    to get the data from json
+    :param generator_mix:
+    :return: to return the data from json
+    """
+    get_generator_fuel(generator_mix)
+    data = response.json()
+    return data['data']
+
+
+
+resp = get_response('https://api.carbonintensity.org.uk/regional')
+# create functions for every operation
+# in every function return some value which is useful for another operation
+# calling the functions step by step
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
